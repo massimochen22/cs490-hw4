@@ -15,17 +15,17 @@ const Article = ({ article, summary = false }) => {
           <Link to={routes.article({ id: article.id })}>{article.title}</Link>
         </h2>
       </header>
-      <div className="mt-2 text-gray-900 font-light">{article.body}
+      <div className="mt-2 text-gray-900 font-light">
         {summary ? truncate(article.body, 100) : article.body}
       </div>
-	{!summary && (
+      {!summary && (
+        <div className="mt-12">
+          <CommentForm postId={article.id} />
           <div className="mt-12">
-            <CommentForm postId={article.id} />
-	   <div className="mt-12">
-		<CommentsCell />
-	   </div>
-	  </div>
-	)}
+            <CommentsCell postId={article.id} />
+          </div>
+        </div>
+      )}
     </article>
   )
 }

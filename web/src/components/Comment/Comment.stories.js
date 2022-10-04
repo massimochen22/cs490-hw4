@@ -11,15 +11,37 @@
 
 import Comment from './Comment'
 
-export const generated = () => {
+export const defaultView = () => {
   return (
     <Comment
       comment={{
+        id: 1,
         name: 'Rob Cameron',
         body: 'This is the first comment!',
-        createdAt: '2020-01-01T12:34:56Z'
+        createdAt: '2020-01-01T12:34:56Z',
+        postId: 1,
       }}
     />
+  )
+}
+
+export const moderatorView = () => {
+  mockCurrentUser({
+    roles: 'moderator',
+  })
+
+  return (
+    <div className="m-4">
+      <Comment
+        comment={{
+          id: 1,
+          name: 'Mike B',
+          body: 'First comment?',
+          createdAt: '2022-10-04T05:48:09.253Z',
+          postId: 1,
+        }}
+      />
+    </div>
   )
 }
 

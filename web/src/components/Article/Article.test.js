@@ -17,8 +17,6 @@ describe('Article', () => {
     expect(screen.getByText(ARTICLE.body)).toBeInTheDocument()
   })
 
-
-
    it('renders comments when displaying a full blog post', async () => {
     const comment = standard().comments[0]
     render(<Article article={ARTICLE} />)
@@ -27,14 +25,6 @@ describe('Article', () => {
       expect(screen.getByText(comment.body)).toBeInTheDocument()
     )
   })
-
-
-
-
-
-
-
-
 
   it('renders a summary of a blog post', () => {
     render(<Article article={ARTICLE} summary={true} />)
@@ -47,10 +37,7 @@ describe('Article', () => {
     ).toBeInTheDocument()
   })
 
-
-
-
- it('does not render comments when displaying a summary', async () => {
+  it('does not render comments when displaying a summary', async () => {
     const comment = standard().comments[0]
     render(<Article article={ARTICLE} summary={true} />)
 
@@ -58,19 +45,5 @@ describe('Article', () => {
       expect(screen.queryByText(comment.body)).not.toBeInTheDocument()
     )
   })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 })
